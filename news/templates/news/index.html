@@ -1,0 +1,28 @@
+{% extends './news_base.html' %}
+{% load cms_tags %}
+{% load static %}
+
+{% block news_content %}
+
+<div class="container">
+
+    News index page
+
+
+    {% if news_list %}
+        <ul class="news-index-grid">
+        {% for news in news_list %}
+            <li>
+                <a href="{% url 'news:news-detail' news.slug %}">{{ news.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Currently no news items.</p>
+    {% endif %}
+
+</div>
+
+{% static_placeholder 'news-footer' %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+<h3>{{ instance.title }}</h3>
+
+<div class="row">
+  {% for news in news_list %}
+
+  <div class="col-md-{{ instance.items_per_row }}">
+    <div style="min-height: 200px" class="panel panel-default">
+        <div class="panel-heading">
+          <h4>{{ news.title }}</h4>
+        </div>
+        <div class="panel-body">
+
+          {{ news.teaser }}
+
+          <div>
+            <a href="{% url 'news:news-detail' news.slug %}" class="btn btn-primary">Read more</a> 
+          </div>
+
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
